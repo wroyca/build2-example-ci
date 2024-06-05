@@ -1,5 +1,8 @@
 # fang - <SUMMARY>
 
+[![Continuous Integration](https://github.com/wroyca/fang/actions/workflows/ci.yml/badge.svg)](https://github.com/wroyca/fang/actions/workflows/ci.yml)
+[![Container Registry](https://github.com/wroyca/fang/actions/workflows/cr.yml/badge.svg)](https://github.com/wroyca/fang/actions/workflows/cr.yml)
+
 `fang` is a <SUMMARY-OF-FUNCTIONALITY>.
 
 This file contains setup instructions and other details that are more
