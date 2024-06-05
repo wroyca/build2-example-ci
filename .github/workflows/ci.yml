@@ -1,0 +1,28 @@
+name: Continuous Integration
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/wroyca/fang:latest
+
+    steps:
+      - uses: actions/checkout@v4
+        id: checkout
+        name: Setup checkout
+
+      - run: git config --global --add safe.directory '*'
+      - run: |
+          bdep init -C @gcc cc
+          bdep update
+          bdep test
+          bpkg bindist -d ../fang-gcc/ fang
+
+      - uses: actions/upload-artifact@v4
+        id: upload-artifact
+        with:
+          path: '/github/home/rpmbuild/RPMS/x86_64/**'
